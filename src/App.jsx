@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
-import Add_task from './components/AddTask'
-import EditTask from './components/EditTask'
+import TasksList from './components/TasksList/TasksList'
+import HighTasks from './components/HighTasks/HighTasks'
+import MediumTasks from './components/MediumTasks/MediumTasks'
+import LowTasks from './components/LowTasks/LowTasks'
 import NotFoundErr from './components/NotFoundErr'
-import AllTasks from './components/AllTasks'
+import AddTask from './components/AddTasks/AddTask'
+import EditTask from './components/EditTasks/EditTask'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,9 +17,12 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Home />}>
-          <Route index element={<AllTasks />} />
-          <Route path='add_task' element={<Add_task />} />
-          <Route path='edit_task' element={< EditTask />} />
+          <Route index element={<TasksList />} />
+          <Route path='high_tasks' element={<HighTasks />} />
+          <Route path='medium_tasks' element={<MediumTasks />} />
+          <Route path='low_tasks' element={<LowTasks />} />
+          <Route path='add_task' element={<AddTask />} />
+          <Route path='edit_task' element={<EditTask />} />
           <Route path='*' element={<NotFoundErr />} />
         </Route>
       </Routes >

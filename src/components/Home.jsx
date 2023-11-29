@@ -48,19 +48,24 @@ export default function Home() {
                             <ul className="space-y-1">
                                 <li>
                                     <Link onClick={() => SetActiveLink('allTasksLink')} className={`link flex 
-                                    items-center rounded-xl ${activeLink == 'allTasksLink' ? 'bg-yellow-200' : ''}
-                                     font-bold text-sm text-yellow-900 py-3 px-4`} to='/'>All Tasks</Link>
+                                    items-center rounded-xl ${activeLink == 'allTasksLink' ? 'bg-blue-300' : ''}
+                                     font-bold text-sm text-yellow-900 py-3 px-4`} to='/'>All Tasks List</Link>
                                 </li>
                                 <li>
-                                    <Link onClick={() => SetActiveLink('addTasksLink')} className={`link flex
-                                     items-center rounded-xl ${activeLink == 'addTasksLink' ? 'bg-yellow-200' : ''}
-                                      font-bold text-sm text-yellow-900 py-3 px-4`} to='/add_task'>Add Task</Link>
+                                    <Link onClick={() => SetActiveLink('highTasks')} className={`link flex
+                                     items-center rounded-xl ${activeLink == 'highTasks' ? 'bg-red-300' : ''}
+                                      font-bold text-sm text-yellow-900 py-3 px-4`} to='/high_tasks'>High Tasks</Link>
 
                                 </li>
                                 <li>
-                                    <Link onClick={() => SetActiveLink('editTasksLink')} className={`link flex
-                                     items-center rounded-xl ${activeLink == 'editTasksLink' ? 'bg-yellow-200' : ''}
-                                      font-bold text-sm text-yellow-900 py-3 px-4`} to='/edit_task'>Edit Task</Link>
+                                    <Link onClick={() => SetActiveLink('mediumTasks')} className={`link flex
+                                     items-center rounded-xl ${activeLink == 'mediumTasks' ? 'bg-green-300' : ''}
+                                      font-bold text-sm text-yellow-900 py-3 px-4`} to='/medium_tasks'>Medium Tasks</Link>
+                                </li>
+                                <li>
+                                    <Link onClick={() => SetActiveLink('lowTasks')} className={`link flex
+                                     items-center rounded-xl ${activeLink == 'lowTasks' ? 'bg-yellow-300' : ''}
+                                      font-bold text-sm text-yellow-900 py-3 px-4`} to='/low_tasks'>Low Tasks</Link>
                                 </li>
                             </ul>
                         </div>
@@ -74,12 +79,10 @@ export default function Home() {
                 </div>
             </aside>
 
-            <main className="ml-60 pt-16 max-h-screen overflow-auto">
+            <main className="ml-60 pt-16">
                 <div className="px-6 py-8">
-                    <div className="max-w-4xl mx-auto">
-                        <div className="bg-white rounded-3xl p-8 mb-5">
+                    <div className="mx-auto">
                             <Outlet />
-                        </div>
                     </div>
                 </div>
             </main>
