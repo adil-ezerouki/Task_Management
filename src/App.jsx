@@ -20,7 +20,7 @@ function App() {
           <Route path='medium_tasks' element={<MediumTasks />} />
           <Route path='low_tasks' element={<LowTasks />} />
           <Route path='add_task' element={<AddTask />} />
-          <Route path='edit_task' element={<EditTask />} />
+          <Route path='edit_task/:id' element={<EditTask />} />
           <Route path='*' element={<NotFoundErr />} />
         </Route>
       </Routes >

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addTask } from '../../reducers/TasksReducer';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddTask() {
 
@@ -9,6 +10,7 @@ export default function AddTask() {
   const tasks = useSelector((state)=> state.tasks)
   let tasksLength = tasks.length;
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -21,6 +23,7 @@ export default function AddTask() {
     event.preventDefault();
     console.log(taskData);
     dispatch(addTask(taskData))
+    navigate('/')
   }
   return (
     <div>
@@ -38,7 +41,7 @@ export default function AddTask() {
         <select type='text' name='importantce' id='taskImportantce' className='border' value={taskData.importantce || ""}
           onChange={handleChange}>
           <option value="high">high</option>
-          <option value="high">medium</option>
+          <option value="medium">medium</option>
           <option value="low">low</option>
         </select>
 
