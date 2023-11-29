@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
@@ -11,7 +10,6 @@ import AddTask from './components/AddTasks/AddTask'
 import EditTask from './components/EditTasks/EditTask'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
