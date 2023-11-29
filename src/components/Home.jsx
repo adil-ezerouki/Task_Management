@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import Done from '../assets/Done.png'
+import NotDone from '../assets/NotYet.png'
 
 export default function Home() {
 
@@ -10,17 +12,17 @@ export default function Home() {
     return (
         <div>
 
-            <header className="fixed right-0 top-0 left-60 bg-yellow-50 py-3 px-4 h-16">
+            <header className="fixed right-0 top-0 left-60 bg-yellow-50 py-3 px-4 ">
                 <div className="max-w-4xl mx-auto">
                     <div className="flex items-center justify-between">
                         <div>
                             <button type="button" className="flex items-center focus:outline-none rounded-lg
                              text-gray-600 hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border
                               border-transparent hover:border-yellow-300 focus:border-yellow-300 transition">
-                                <span className="inline-flex items-center justify-center w-6 h-6 text-gray-600 text-xs rounded bg-white transition mr-2">
-                                    &lt;
+                                <span className="inline-flex items-center justify-center w-16 text-gray-600 text-xs rounded bg-white transition mr-2">
+                                    <img src={Done} className='' alt="" srcset="" />
                                 </span>
-                                <span className="text-sm">Archive</span>
+                                <span className="text-sm">Completed</span>
                             </button>
                         </div>
                         <div className="text-lg font-bold">Today's Plan</div>
@@ -28,9 +30,9 @@ export default function Home() {
                             <button type="button" className="flex items-center focus:outline-none rounded-lg text-gray-600 
                             hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border border-transparent 
                             hover:border-yellow-300 focus:border-yellow-300 transition">
-                                <span className="text-sm">This week</span>
-                                <span className="inline-flex items-center justify-center w-6 h-6 text-gray-600 text-xs rounded bg-white transition ml-2">
-                                    &gt;
+                                <span className="text-sm">Uncompleted</span>
+                                <span className="inline-flex items-center justify-center w-16 text-gray-600 text-xs rounded bg-white transition ml-2">
+                                <img src={NotDone} className='' alt="" srcset="" />
                                 </span>
                             </button>
                         </div>

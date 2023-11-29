@@ -18,11 +18,10 @@ export default function AllTasks() {
 
   const handleCompleted = (id)=> {
       dispatch(editCompleted({id : id}))
-      // console.log(taskId)
   }
 
   return (
-    <div className='tasks flex p-0  flex-wrap gap-10'>
+    <div className='tasks flex p-0 pt-5  flex-wrap gap-10'>
 
       {
         tasks.map((task, index) => (
@@ -41,8 +40,8 @@ export default function AllTasks() {
             </div>
             <div className='flex flex-col justify-center items-center gap-4 px-5 py-7'>
               <span className={`self-start text-white py-1 px-3 ${task.importantce == 'high' ? "bg-red-500" : task.importantce == 'medium' ? "bg-green-500" : task.importantce == 'low' ? "bg-yellow-500" : ''} rounded-full`}>{task.importantce}</span>
-              <h2 className='self-start text-[25px]'>{task.title}</h2>
-              <p className=''>{task.description}</p>
+              <h2 className={`self-start text-[25px] ${task.completed ? 'line-through' : ''} `}>{task.title}</h2>
+              <p className={`${task.completed ? 'line-through' : ''}`}>{task.description}</p>
               <div className='actions flex gap-10'>
                 <Link to={`/edit_task/${task.id}`} className='btn bg-yellow-600 p-2 w-[90px]  rounded-lg flex gap-2 '>
                   <i className="fa-solid fa-pen-to-square self-center"></i>
