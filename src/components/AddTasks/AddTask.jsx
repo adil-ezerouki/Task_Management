@@ -38,7 +38,7 @@ export default function AddTask() {
           onChange={handleChange} />
 
         <label htmlFor='taskImportantce'>task title</label>
-        <select type='text' name='importantce' id='taskImportantce' className='border' value={taskData.importantce || ""}
+        <select type='text' name='importantce' id='taskImportantce' className='border' value={taskData.importantce || "high"}
           onChange={handleChange}>
           <option value="high">high</option>
           <option value="medium">medium</option>

@@ -2,10 +2,18 @@ import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import Done from '../assets/Done.png'
 import NotDone from '../assets/NotYet.png'
+import { useDispatch, useSelector } from 'react-redux';
+
 
 export default function Home() {
-
+    
     const [activeLink, SetActiveLink] = useState('allTasksLink');
+    let tasks = useSelector((state)=> state.tasks)
+
+    const filterCompletedTasks = ()=> {
+        tasks = tasks.filter((task)=>task.completed == true)
+    }
+
 
 
 
@@ -16,11 +24,11 @@ export default function Home() {
                 <div className="max-w-4xl mx-auto">
                     <div className="flex items-center justify-between">
                         <div>
-                            <button type="button" className="flex items-center focus:outline-none rounded-lg
+                            <button onClick={filterCompletedTasks} type="button" className="flex items-center focus:outline-none rounded-lg
                              text-gray-600 hover:text-yellow-600 focus:text-yellow-600 font-semibold p-2 border
                               border-transparent hover:border-yellow-300 focus:border-yellow-300 transition">
                                 <span className="inline-flex items-center justify-center w-16 text-gray-600 text-xs rounded bg-white transition mr-2">
-                                    <img src={Done} className='' alt="" srcset="" />
+                                    <img src={Done} className='' alt="" />
                                 </span>
                                 <span className="text-sm">Completed</span>
                             </button>
@@ -32,7 +40,7 @@ export default function Home() {
                             hover:border-yellow-300 focus:border-yellow-300 transition">
                                 <span className="text-sm">Uncompleted</span>
                                 <span className="inline-flex items-center justify-center w-16 text-gray-600 text-xs rounded bg-white transition ml-2">
-                                <img src={NotDone} className='' alt="" srcset="" />
+                                <img src={NotDone} className='' alt="" />
                                 </span>
                             </button>
                         </div>

@@ -2,38 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const tasksSlice = createSlice({
     name : 'tasks',
-    initialState :
-    [
-        {
-            title: 'Practice Js',
-            description : "this is a good mission that you would llike to have in your life",
-            importantce : 'high',
-            completed : true,
-            id : 1
-        },
-        {
-            title: 'Practice Html',
-            description : "this is a good mission that you would llike to have in your life",
-            importantce : 'medium',
-            completed : false,
-            id : 2
-        },
-        {
-            title: 'Practice Css',
-            description : "this is a good mission that you would llike to have in your life",
-            importantce : 'low',
-            completed : true,
-            id : 3
-        },
-
-    ],
+    initialState : JSON.parse(localStorage.getItem('tasks')),
     reducers : {
         addTask: (state,action) => {
             state.push(action.payload)
+            localStorage.setItem('tasks',JSON.stringify(state))
+            console.log(localStorage.getItem('tasks'))
         },
         editTask: (state,action) => {
-            // state.push(action.payload)
-            // console.log(action)
+            
             const {id,title,description,completed,importantce} = action.payload
             let targetedTask = state.find((task)=> task.id == id);
 
@@ -44,13 +21,23 @@ const tasksSlice = createSlice({
                 targetedTask.importantce = importantce
             }
 
+            localStorage.setItem('tasks',JSON.stringify(state))
+
+
+
         },
+
         deleteTask : (state,action) => {
             const {id} = action.payload
             let targetedTask = state.find((task)=> task.id == id);
             if(targetedTask) {
-                return state.filter((task)=> task.id !== id)
+                 state = state.filter((task)=> task.id !== id)
             }
+
+            // console.log(state)
+            localStorage.setItem('tasks',JSON.stringify(state))
+            location.reload();
+
 
         },
         
@@ -61,6 +48,8 @@ const tasksSlice = createSlice({
             if(targetedTask) {
                 targetedTask.completed = !targetedTask.completed;
             }
+
+            localStorage.setItem('tasks',JSON.stringify(state))
 
             
 
