@@ -44,7 +44,7 @@ export default function EditTask() {
         <textarea placeholder='description' type='text' name='description' id='taskDescription' className='border h-[150px] py-2 px-5 rounded-lg' value={taskEditData.description || ""}
           onChange={handleChange} />
 
-        <label htmlFor='taskImportantce'>task title :</label>
+        <label htmlFor='taskImportantce'>task importantce :</label>
         <select type='text' name='importantce' id='taskImportantce' className='border py-2 px-5 rounded-lg' value={taskEditData.importantce || ""}
           onChange={handleChange}>
           <option value="high">high</option>
