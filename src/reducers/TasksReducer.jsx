@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const tasksSlice = createSlice({
     name : 'tasks',
-    initialState : JSON.parse(localStorage.getItem('tasks')),
+    initialState : JSON.parse(localStorage.getItem('tasks')) || [],
     reducers : {
         addTask: (state,action) => {
             state.push(action.payload)
@@ -50,6 +50,7 @@ const tasksSlice = createSlice({
             }
 
             localStorage.setItem('tasks',JSON.stringify(state))
+            location.reload();
 
             
 

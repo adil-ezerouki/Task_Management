@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ToggleButton from 'react-toggle-button'
 import { deleteTask, editCompleted } from '../../reducers/TasksReducer'
 
@@ -11,6 +11,7 @@ export default function LowTasks() {
   const HighTasks = tasks.filter((task)=> task.importantce == 'low')
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleDelete = (id) => {
     dispatch(deleteTask({ id: id }))
@@ -23,9 +24,8 @@ export default function LowTasks() {
 
   return (
     <>
-    <h1 className='p-5 text-center font-bold text-[25px]'>Low Tasks</h1>
     
-    <div className='tasks flex p-0  flex-wrap gap-10'>
+    <div className='tasks p-12 flex p-0  flex-wrap gap-10'>
     
       {
         HighTasks.map((task, index) => (
@@ -61,6 +61,9 @@ export default function LowTasks() {
 
         ))
       }
+      <div className='add_task bg-gray-300 flex justify-center align-center'>
+          <Link className='self-center' to={navigate('/add_task')}><i class="fa-solid fa-circle-plus text-[80px] text-gray-400 cursor-pointer"></i></Link>
+        </div>
     </div>
     </>
   )

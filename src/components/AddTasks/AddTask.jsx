@@ -8,7 +8,7 @@ export default function AddTask() {
 
   const [taskData, setTaskData] = useState({});
   const tasks = useSelector((state)=> state.tasks)
-  let tasksLength = tasks.length;
+  let tasksLength = tasks ? tasks.length : 0;
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -26,26 +26,26 @@ export default function AddTask() {
     navigate('/')
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='flex p-12 justify-center items-center'>
+      <form onSubmit={handleSubmit} className='flex flex-col w-[400px] h-[490px] p-6 bg-green-300 rounded-lg gap-4 text-[20px] '>
 
-        <label htmlFor='taskTitle'>task title</label>
-        <input type='text' name='title' id='taskTitle' value={taskData.title || ""}
-          onChange={handleChange} className='border' />
+        <label htmlFor='taskTitle'>task title :</label>
+        <input placeholder='title' type='text' name='title' id='taskTitle' value={taskData.title || ""}
+          onChange={handleChange} className='border py-2 px-5 rounded-lg ' />
 
-        <label htmlFor='taskDescription'>task title</label>
-        <input type='text' name='description' id='taskDescription' className='border' value={taskData.description || ""}
+        <label htmlFor='taskDescription'>task description :</label>
+        <textarea placeholder='description' type='text' name='description' id='taskDescription' className='border h-[200px] py-2 px-5 rounded-lg' value={taskData.description || ""}
           onChange={handleChange} />
 
-        <label htmlFor='taskImportantce'>task title</label>
-        <select type='text' name='importantce' id='taskImportantce' className='border' value={taskData.importantce || "high"}
+        <label htmlFor='taskImportantce'>task status :</label>
+        <select type='text' name='importantce' id='taskImportantce' className='border py-2 px-5 rounded-lg' value={taskData.importantce || "high"}
           onChange={handleChange}>
           <option value="high">high</option>
           <option value="medium">medium</option>
           <option value="low">low</option>
         </select>
 
-        <button>Add</button>
+        <button className='bg-blue-400 self-center w-[100px] rounded-lg py-2 px-5'>Add</button>
       </form>
     </div>
   )

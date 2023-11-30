@@ -33,27 +33,26 @@ export default function EditTask() {
 
   return (
 
-    <>
-      <h1>edit</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='flex p-12 justify-center items-center'>
+      <form className={`flex flex-col w-[400px]  p-6 ${taskEditData.importantce == 'high' ? "bg-red-300" : taskEditData.importantce == 'medium' ? "bg-green-300" : taskEditData.importantce == 'low' ? 'bg-yellow-300' : ''} rounded-lg gap-4 text-[20px]`} onSubmit={handleSubmit}>
 
-        <label htmlFor='taskTitle'>task title</label>
-        <input type='text' name='title' id='taskTitle' value={taskEditData.title || ""}
-          onChange={handleChange} className='border' />
+        <label htmlFor='taskTitle'>task title :</label>
+        <input placeholder='title' type='text' name='title' id='taskTitle' value={taskEditData.title || ""}
+          onChange={handleChange} className='border py-2 px-5 rounded-lg' />
 
-        <label htmlFor='taskDescription'>task title</label>
-        <input type='text' name='description' id='taskDescription' className='border' value={taskEditData.description || ""}
+        <label htmlFor='taskDescription'>task description :</label>
+        <textarea placeholder='description' type='text' name='description' id='taskDescription' className='border h-[150px] py-2 px-5 rounded-lg' value={taskEditData.description || ""}
           onChange={handleChange} />
 
-        <label htmlFor='taskImportantce'>task title</label>
-        <select type='text' name='importantce' id='taskImportantce' className='border' value={taskEditData.importantce || ""}
+        <label htmlFor='taskImportantce'>task title :</label>
+        <select type='text' name='importantce' id='taskImportantce' className='border py-2 px-5 rounded-lg' value={taskEditData.importantce || ""}
           onChange={handleChange}>
           <option value="high">high</option>
           <option value="medium">medium</option>
           <option value="low">low</option>
         </select>
 
-        <label htmlFor='taskStatus'>task status</label>
+        <label htmlFor='taskStatus'>task status :</label>
         <ToggleButton className='hh'
           inactiveLabel='Nt'
           activeLabel='Dn'
@@ -64,8 +63,8 @@ export default function EditTask() {
             setTaskEditData((prevData)=> ({...prevData , completed : !completed}));
           }} />
 
-        <button>Edit</button>
+        <button className='bg-blue-400 self-center w-[100px] rounded-lg py-2 px-5'>Edit</button>
       </form>
-    </>
+    </div>
   )
 }
