@@ -33,7 +33,7 @@ export default function EditTask() {
 
   return (
 
-    <div className='flex p-12 justify-center items-center'>
+    <div className={`flex p-12 justify-center items-center ${taskEditData.importantce == 'high' ? "bg-red-100" : taskEditData.importantce == 'low' ? "bg-yellow-100" : 'bg-green-100'} ${taskEditData.completed ? 'done-Bg-edit' : 'notdone-Bg-edit' }`}>
       <form className={`flex flex-col w-[400px]  p-6 ${taskEditData.importantce == 'high' ? "bg-red-300" : taskEditData.importantce == 'medium' ? "bg-green-300" : taskEditData.importantce == 'low' ? 'bg-yellow-300' : ''} rounded-lg gap-4 text-[20px]`} onSubmit={handleSubmit}>
 
         <label htmlFor='taskTitle'>task title :</label>

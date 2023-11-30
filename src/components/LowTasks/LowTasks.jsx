@@ -25,7 +25,7 @@ export default function LowTasks() {
   return (
     <>
     
-    <div className='tasks p-12 flex p-0  flex-wrap gap-10'>
+    <div className='tasks p-12 flex p-0  flex-wrap gap-10 bg-yellow-100'>
     
       {
         HighTasks.map((task, index) => (

@@ -18,6 +18,8 @@ export default function AddTask() {
     setTaskData(values => ({ ...values, [name]: value }))
     taskData.id = tasksLength+=1 ;
     taskData.completed = false;
+
+    console.log(taskData.importantce)
   }
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,20 +28,21 @@ export default function AddTask() {
     navigate('/')
   }
   return (
-    <div className='flex p-12 justify-center items-center'>
-      <form onSubmit={handleSubmit} className='flex flex-col w-[400px] h-[490px] p-6 bg-green-300 rounded-lg gap-4 text-[20px] '>
+    <div className= {`flex p-12 justify-center items-center ${taskData.importantce == 'high' ? "bg-red-100" : taskData.importantce == 'low' ? "bg-yellow-100" : 'bg-green-100'}`}>
+      <form onSubmit={handleSubmit} className={`flex flex-col w-[400px] h-[490px] p-6 ${taskData.importantce == 'high' ? "bg-red-300" : taskData.importantce == 'low' ? "bg-yellow-300" : 'bg-green-300'}  rounded-lg gap-4 text-[20px]`}>
 
         <label htmlFor='taskTitle'>task title :</label>
-        <input placeholder='title' type='text' name='title' id='taskTitle' value={taskData.title || ""}
+        <input required placeholder='title' type='text' name='title' id='taskTitle' value={taskData.title || ""}
           onChange={handleChange} className='border py-2 px-5 rounded-lg ' />
 
         <label htmlFor='taskDescription'>task description :</label>
-        <textarea placeholder='description' type='text' name='description' id='taskDescription' className='border h-[200px] py-2 px-5 rounded-lg' value={taskData.description || ""}
+        <textarea required placeholder='description' type='text' name='description' id='taskDescription' className='border h-[200px] py-2 px-5 rounded-lg' value={taskData.description || ""}
           onChange={handleChange} />
 
         <label htmlFor='taskImportantce'>task status :</label>
-        <select type='text' name='importantce' id='taskImportantce' className='border py-2 px-5 rounded-lg' value={taskData.importantce || "high"}
+        <select required type='text' name='importantce' id='taskImportantce'  className='border py-2 px-5 rounded-lg' value={taskData.importantce || ""}
           onChange={handleChange}>
+            <option defaultValue className='text-gray-400'>select status</option>
           <option value="high">high</option>
           <option value="medium">medium</option>
           <option value="low">low</option>

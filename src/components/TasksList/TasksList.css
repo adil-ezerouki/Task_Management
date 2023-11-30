@@ -26,3 +26,12 @@ img {
 .NotDone_bg {
     background-image: url('../../assets/sadEmoji.png');
 }
+
+
+.done-Bg-edit {
+    background-image: url('../../assets/celebratingEmojiEdit.png');
+    /* opacity: 0.1; */
+}
+.notdone-Bg-edit {
+    background-image: url('../../assets/sadEmojiEdit.png');
+}

@@ -40,12 +40,12 @@ export default function AllTasks() {
 
 
   return (
-    <div className=' flex p-0 pt-5 flex-col gap-5 bg-blue-100'>
+    <div className=' flex p-0 pt-8 flex-col gap-5 bg-blue-100 h-full'>
       <div className='filter flex justify-between px-20'>
         <button onClick={filterCompletedTasks} type="button" className={`flex items-center focus:outline-none rounded-lg
                              text-gray-600 hover:text-yellow-600  font-semibold p-2 border
                               border-transparent hover:border-yellow-300 ${activeFilter == 'completedTasks' ? 'border-yellow-300 bg-yellow-100 transition text-yellow-600' : ''} `}>
-          <span className="inline-flex items-center justify-center w-16 text-gray-600 text-xs rounded bg-white transition mr-2">
+          <span className="inline-flex items-center justify-center w-16 text-gray-600 text-xs rounded transition mr-2">
             <img src={Done} className='' alt="" />
           </span>
           <span className="text-lg">Completed</span>
@@ -61,7 +61,7 @@ export default function AllTasks() {
                             hover:text-yellow-600  font-semibold p-2 border border-transparent 
                             hover:border-yellow-300 ${activeFilter == 'uncompletedTasks' ? 'border-yellow-300 bg-yellow-100 transition text-yellow-600' : ''}`}>
           <span className="text-lg">Uncompleted</span>
-          <span className="inline-flex items-center justify-center w-16 text-gray-600 text-xs rounded bg-white transition ml-2">
+          <span className="inline-flex items-center justify-center w-16 text-gray-600 text-xs rounded transition ml-2">
             <img src={NotDone} className='' alt="" />
           </span>
         </button>
@@ -84,7 +84,7 @@ export default function AllTasks() {
           <span className='self-center'>Low Tasks</span>
         </div>
       </div>
-      <div className='tasks flex ps-12 pt-5  flex-wrap gap-10'>
+      <div className='tasks flex ps-12 pt-5  flex-wrap gap-10 pb-8' >
 
         {allTasks ? (
           allTasks.map((task, index) => (
