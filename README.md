@@ -1,8 +1,8 @@
-# React + Vite
+what to install for this app :
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+npm install react-toggle-button
+npm i -D react-router-dom
+npm install react-redux
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+and for explaining my app I have recorded a video regrading this so I hope you give me an email so I can send it there, cause thintershala platform doesn't support sending videos.
